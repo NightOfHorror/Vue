@@ -30,7 +30,7 @@ main {
   align-items: flex-start;
   height: 100vh;
   margin-top: 50px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Old English Text MT', Times, serif; 
 }
 
 .game-card {
@@ -40,7 +40,7 @@ main {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Ombre légère */
   width: 300px;
   padding: 20px;
-  color: #2A7AAF; /* Texte blanc */
+  color: #C39D6F; /* Texte blanc */
   align-items: center;
   transition : box-shadow 0.5s ease;
   
@@ -69,14 +69,14 @@ div a.button {
   margin: 5px;
   text-decoration: none;
   color: #fff;
-  background-color: #3498db;
-  border: 2px solid #fff;
+  background-color: #2C3E50;
+  border: 2px solid #C39D6F;
   border-radius: 8px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 div a.button:hover {
-  color: #1a1a1a; /* Couleur de fond sombre pour les liens au survol */ /* Couleur bleue pour les liens au survol */
+  color: #C39D6F; /* Couleur de fond sombre pour les liens au survol */ /* Couleur bleue pour les liens au survol */
 }
 </style>
   /* Style additionnel pour les liens si nécessaire */
