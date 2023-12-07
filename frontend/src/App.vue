@@ -2,27 +2,31 @@
   <div id="app" @keydown="handleKeyDown" ref="appRef">
     <Header />
     <FlipCard />
+    <router-view></router-view>
   </div>
 </template>
 
 <script lang="ts">
+import Vue from 'vue';
 import Header from "@/components/Header.vue";
 import FlipCard from "@/components/FlipCard.vue";
+import MainMenu from "@/components/MainMenu.vue";
 
-export default {
+export default Vue.extend({
   name: "App",
   components: {
     Header,
     FlipCard,
+    MainMenu,
   },
   data() {
     return {
-      konamiCode: [],
+      konamiCode: [] as string[],
       konamiSequence: ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"],
     };
   },
   methods: {
-    handleKeyDown(event) {
+    handleKeyDown(event: KeyboardEvent) {
       console.log("Key pressed:", event.key);
       const key = event.key;
 
@@ -33,19 +37,25 @@ export default {
       }
 
       if (this.konamiCode.join("") === this.konamiSequence.join("")) {
-        // La séquence Konami Code a été entrée
+        // Konami Code sequence entered
         this.triggerKonamiAction();
-        this.konamiCode = []; // Réinitialiser la séquence Konami Code
+        this.konamiCode = []; // Reset the Konami Code sequence
       }
     },
     triggerKonamiAction() {
       // Action à effectuer lors de la saisie du Konami Code
       alert("Konami Code Activated!");
-      // Vous pouvez effectuer d'autres actions ici
+
+      // Rediriger l'utilisateur vers une nouvelle route
+      if (this.$router) {
+        this.$router.push("/bomberman"); // Assurez-vous que "/bomberman" correspond à la route de votre composant Bomberman
+      }
     },
     handleBlur() {
       // Force le focus sur l'élément lorsque le focus est perdu
-      this.$refs.appRef.focus();
+      if (this.$refs && this.$refs.appRef) {
+        (this.$refs.appRef as HTMLElement).focus();
+      }
     },
   },
   mounted() {
@@ -56,7 +66,7 @@ export default {
     // Retire l'écouteur d'événements lorsque le composant est détruit
     document.removeEventListener("keydown", this.handleKeyDown);
   },
-};
+});
 </script>
 
 <style>
