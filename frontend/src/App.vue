@@ -50,7 +50,7 @@ export default Vue.extend({
   // Vous pouvez également rediriger l'utilisateur dans l'onglet actuel en utilisant la méthode push de Vue Router
   // Assurez-vous que "/bomberman" correspond à la route de votre composant Bomberman
   if (this.$router) {
-    this.$router.push("/bomberman");
+    this.$router.push("/tictactoe");
   }
 },
     handleBlur() {
