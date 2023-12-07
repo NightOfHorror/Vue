@@ -1,9 +1,7 @@
 <template>
-  <div id="app">
-  <Header>
-    </Header>
-    <FlipCard>
-    </FlipCard>
+  <div id="app" @keydown="handleKeyDown" ref="appRef">
+    <Header />
+    <FlipCard />
   </div>
 </template>
 
@@ -11,11 +9,52 @@
 import Header from "@/components/Header.vue";
 import FlipCard from "@/components/FlipCard.vue";
 
-
 export default {
+  name: "App",
   components: {
     Header,
     FlipCard,
+  },
+  data() {
+    return {
+      konamiCode: [],
+      konamiSequence: ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"],
+    };
+  },
+  methods: {
+    handleKeyDown(event) {
+      console.log("Key pressed:", event.key);
+      const key = event.key;
+
+      this.konamiCode.push(key);
+
+      if (this.konamiCode.length > this.konamiSequence.length) {
+        this.konamiCode.shift();
+      }
+
+      if (this.konamiCode.join("") === this.konamiSequence.join("")) {
+        // La séquence Konami Code a été entrée
+        this.triggerKonamiAction();
+        this.konamiCode = []; // Réinitialiser la séquence Konami Code
+      }
+    },
+    triggerKonamiAction() {
+      // Action à effectuer lors de la saisie du Konami Code
+      alert("Konami Code Activated!");
+      // Vous pouvez effectuer d'autres actions ici
+    },
+    handleBlur() {
+      // Force le focus sur l'élément lorsque le focus est perdu
+      this.$refs.appRef.focus();
+    },
+  },
+  mounted() {
+    // Ajoute un écouteur d'événements pour le clavier
+    document.addEventListener("keydown", this.handleKeyDown);
+  },
+  beforeDestroy() {
+    // Retire l'écouteur d'événements lorsque le composant est détruit
+    document.removeEventListener("keydown", this.handleKeyDown);
   },
 };
 </script>
