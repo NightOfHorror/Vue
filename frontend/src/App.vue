@@ -43,14 +43,17 @@ export default Vue.extend({
       }
     },
     triggerKonamiAction() {
-      // Action à effectuer lors de la saisie du Konami Code
-      alert("Konami Code Activated!");
+  // Action à effectuer lors de la saisie du Konami Code
+  alert("Konami Code Activated!");
 
-      // Rediriger l'utilisateur vers une nouvelle route
-      if (this.$router) {
-        this.$router.push("/bomberman"); // Assurez-vous que "/bomberman" correspond à la route de votre composant Bomberman
-      }
-    },
+  // Ouvrir un nouvel onglet avec la route "/bomberman"
+
+  // Vous pouvez également rediriger l'utilisateur dans l'onglet actuel en utilisant la méthode push de Vue Router
+  // Assurez-vous que "/bomberman" correspond à la route de votre composant Bomberman
+  if (this.$router) {
+    this.$router.push("/bomberman");
+  }
+},
     handleBlur() {
       // Force le focus sur l'élément lorsque le focus est perdu
       if (this.$refs && this.$refs.appRef) {
