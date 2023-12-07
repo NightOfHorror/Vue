@@ -1,31 +1,20 @@
 <template>
   <div id="app">
+  <Header>
+    </Header>
     <FlipCard>
-      <!-- Contenu de la face avant de la carte -->
-      <template v-slot:frontContent>
-        <div>
-          <h2>Face Avant</h2>
-          <p>Contenu de la face avant de la carte</p>
-        </div>
-      </template>
-      
-      <!-- Contenu de la face arrière de la carte -->
-      <template v-slot:backContent>
-        <div>
-          <h2>Face Arrière</h2>
-          <p>Contenu de la face arrière de la carte</p>
-        </div>
-      </template>
     </FlipCard>
   </div>
 </template>
 
 <script lang="ts">
+import Header from "@/components/Header.vue";
 import FlipCard from "@/components/FlipCard.vue";
 
 
 export default {
   components: {
+    Header,
     FlipCard,
   },
 };
@@ -36,7 +25,7 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 70px; /* Ajustez la marge pour éviter que le contenu ne soit caché derrière l'en-tête fixe */
 }
 
 h2 {

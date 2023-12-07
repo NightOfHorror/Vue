@@ -7,7 +7,7 @@
           <button @click="answerQuestion(true)">Vrai</button>
           <button @click="answerQuestion(false)">Faux</button>
         </div>
-        <div class="flip-card-back">
+        <div class="flip-card-back" :class="{ correctAnswer: isFlipped && isCorrectAnswer, wrongAnswer: isFlipped && !isCorrectAnswer }">
           <!-- Contenu de la face arrière de la carte (réponse) -->
           <div class="answer">{{ currentQuestion.answer }}</div>
         </div>
@@ -27,6 +27,7 @@
         ],
         currentQuestionIndex: 0,
         currentQuestion: {},
+        isCorrectAnswer: null,
       };
     },
     methods: {
@@ -34,6 +35,7 @@
         // Si la carte est déjà retournée, réinitialiser pour la prochaine question
         if (this.isFlipped) {
           this.isFlipped = false;
+          this.isCorrectAnswer = null;
           this.currentQuestionIndex = (this.currentQuestionIndex + 1) % this.questions.length;
           this.currentQuestion = this.questions[this.currentQuestionIndex];
         } else {
@@ -43,7 +45,7 @@
       },
       answerQuestion(response) {
         // Traiter la réponse de l'utilisateur (peut être étendu selon vos besoins)
-        console.log("Réponse:", response);
+        this.isCorrectAnswer = response === (this.currentQuestion.answer === "Vrai");
       },
     },
     mounted() {
@@ -62,6 +64,7 @@
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     cursor: pointer;
+    transition: background-color 0.3s; /* Transition pour le changement de couleur de fond */
   }
   
   .flip-card-inner {
@@ -96,9 +99,17 @@
   }
   
   .flip-card-back {
-    background-color: #2ecc71;
     color: #fff;
     transform: rotateY(180deg);
+    transition: background-color 0.3s; /* Transition pour le changement de couleur de fond */
+  }
+  
+  .correctAnswer {
+    background-color: #2ecc71; /* Fond vert pour la réponse correcte */
+  }
+  
+  .wrongAnswer {
+    background-color: #e74c3c; /* Fond rouge pour la réponse incorrecte */
   }
   
   .question,
