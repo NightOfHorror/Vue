@@ -43,9 +43,7 @@ export default Vue.extend({
     },
     triggerKonamiAction() {
   // Action à effectuer lors de la saisie du Konami Code
-  alert("Konami Code Activated!");
-
-  // Ouvrir un nouvel onglet avec la route "/bomberman"
+  alert("Konami Code Activated! click here to continue");
 
   // Vous pouvez également rediriger l'utilisateur dans l'onglet actuel en utilisant la méthode push de Vue Router
   // Assurez-vous que "/bomberman" correspond à la route de votre composant Bomberman
