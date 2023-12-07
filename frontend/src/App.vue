@@ -1,32 +1,45 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+    <FlipCard>
+      <!-- Contenu de la face avant de la carte -->
+      <template v-slot:frontContent>
+        <div>
+          <h2>Face Avant</h2>
+          <p>Contenu de la face avant de la carte</p>
+        </div>
+      </template>
+      
+      <!-- Contenu de la face arrière de la carte -->
+      <template v-slot:backContent>
+        <div>
+          <h2>Face Arrière</h2>
+          <p>Contenu de la face arrière de la carte</p>
+        </div>
+      </template>
+    </FlipCard>
   </div>
 </template>
+
+<script lang="ts">
+import FlipCard from "@/components/FlipCard.vue";
+
+
+export default {
+  components: {
+    FlipCard,
+  },
+};
+</script>
 
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  margin-top: 60px;
 }
 
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+h2 {
+  margin-bottom: 10px;
 }
 </style>
