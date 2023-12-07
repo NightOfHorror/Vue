@@ -1,16 +1,14 @@
-<!-- MainMenu.vue -->
 <template>
     <div>
       <main>
-        <div class="card">
+        <div class="game-card">
+          <h1 class="card-title">Menu</h1>
           <div class="card-body">
-            <h1>Réchauffement Climatique Quizz</h1>
-            <h2 class="card-title">Menu</h2>
-            <nav>
-              <router-link to="/play">Jouer</router-link>
-              <router-link to="/highscore">HighScore</router-link>
-              <router-link to="/creators">Créateurs</router-link>
-            </nav>
+            <div>
+              <router-link class="button" to="/play">Jouer</router-link>
+              <router-link class="button" to="/highscore">HighScore</router-link>
+              <router-link class="button" to="/creators">Créateurs</router-link>
+            </div>
           </div>
         </div>
       </main>
@@ -19,39 +17,68 @@
   
   <script>
   export default {
-    // Logique du composant si nécessaire
+    name: "MainMenu"
   };
   </script>
   
   <style scoped>
-  /* Styles spécifiques à MainMenu.vue */
-  header {
-    background-color: #3498db;
-    padding: 20px;
-    color: white;
-    text-align: center;
-  }
+/* Styles spécifiques à MainMenu.vue */
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  margin-top: 50px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.game-card {
+  background-color: whitesmoke; /* Couleur de fond sombre */
+  border: 2px solid #6c757d; /* Bordure grise */
+  border-radius: 12px; /* Coins arrondis */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Ombre légère */
+  width: 300px;
+  padding: 20px;
+  color: #2A7AAF; /* Texte blanc */
+  align-items: center;
+  transition : box-shadow 0.5s ease;
   
-  main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .card {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 300px; /* Ajuste la largeur de la carte selon tes besoins */
-  }
-  
-  .card-body {
-    padding: 20px;
-    text-align: center;
-  }
-  
+}
+.game-card:hover {
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2); 
+
+}
+
+.card-title {
+  font-size: 80px;
+  margin-top: 0;
+}
+
+.card-body {
+  text-align: center;
+  display:flex;
+  justify-content: center;
+}
+
+/* Style additionnel pour les liens si nécessaire */
+div a.button {
+  display: flex;
+  justify-content: center;
+  padding: 10px 40px;
+  margin: 5px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #3498db;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+div a.button:hover {
+  color: #1a1a1a; /* Couleur de fond sombre pour les liens au survol */ /* Couleur bleue pour les liens au survol */
+}
+</style>
   /* Style additionnel pour les liens si nécessaire */
   nav a {
     display: block;
@@ -60,9 +87,4 @@
     color: #333;
     font-weight: bold;
   }
-  
-  nav a:hover {
-    color: #3498db;
-  }
-  </style>
   
