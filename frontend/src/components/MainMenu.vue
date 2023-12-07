@@ -17,6 +17,7 @@
   
   <script>
   export default {
+    name: "MainMenu"
   };
   </script>
   
@@ -36,7 +37,7 @@ main {
   background-color: whitesmoke; /* Couleur de fond sombre */
   border: 2px solid #6c757d; /* Bordure grise */
   border-radius: 12px; /* Coins arrondis */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre légère */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Ombre légère */
   width: 300px;
   padding: 20px;
   color: #2A7AAF; /* Texte blanc */

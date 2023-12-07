@@ -1,7 +1,6 @@
 <template>
   <div id="app" @keydown="handleKeyDown" ref="appRef">
-    <Header />
-    <FlipCard />
+    <Header/>
     <router-view></router-view>
   </div>
 </template>
