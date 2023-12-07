@@ -74,6 +74,7 @@
     justify-content: center;
     text-align: center;
     padding: 20px;
+    box-sizing: border-box; /* Inclure les marges et les bordures dans la taille totale */
   }
   
   .flip-card-front {
