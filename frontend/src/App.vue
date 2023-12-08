@@ -1,5 +1,5 @@
 <template>
-  <div id="app" @keydown="handleKeyDown" ref="appRef">
+  <div id="app" @keydown="handleKeyDown" ref="appRef" :class="{ 'dark-mode': isDarkMode }">
     <Header/>
     <router-view></router-view>
   </div>
@@ -18,8 +18,13 @@ export default Vue.extend({
     Header,
     FlipCard,
     MainMenu,
-    Creators,
-},
+    Creators
+  },
+  computed: {
+    isDarkMode() {
+      return this.$store.getters.isDarkMode;
+    },
+  },
   data() {
     return {
       konamiCode: [] as string[],
@@ -45,14 +50,12 @@ export default Vue.extend({
     },
     triggerKonamiAction() {
   // Action à effectuer lors de la saisie du Konami Code
-  alert("Konami Code Activated!");
-
-  // Ouvrir un nouvel onglet avec la route "/bomberman"
+  alert("Konami Code Activated! click here to continue");
 
   // Vous pouvez également rediriger l'utilisateur dans l'onglet actuel en utilisant la méthode push de Vue Router
   // Assurez-vous que "/bomberman" correspond à la route de votre composant Bomberman
   if (this.$router) {
-    this.$router.push("/bomberman");
+    this.$router.push("/tictactoe");
   }
 },
     handleBlur() {
@@ -74,6 +77,10 @@ export default Vue.extend({
 </script>
 
 <style>
+.dark-mode {
+  background-color: #333; /* Changer la couleur d'arrière-plan en mode sombre */
+  color: #fff; /* Changer la couleur du texte en mode sombre */
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;

@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import Creators from '../components/Creators.vue'
 import FlipCard from '../components/FlipCard.vue'
-import Bomberman from '../components/Bomberman.vue'
+import tictactoe from '../components/tictactoe.vue'
 import MainMenu from '../components/MainMenu.vue'
 import HomeView from '../views/HomeView.vue'; 
 
@@ -25,9 +25,9 @@ const routes: Array<RouteConfig> = [
     component: FlipCard
   },
   {
-    path: '/bomberman',
-    name: 'bomberman',
-    component: Bomberman
+    path: '/tictactoe',
+    name: 'tictactoe',
+    component: tictactoe
   },
 ]
 

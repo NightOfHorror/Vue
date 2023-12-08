@@ -1,6 +1,6 @@
 <template>
     <div>
-      <main>
+      <main :class="{ 'dark-mode': $store.getters.isDarkMode }">
         <div class="game-card">
           <h1 class="card-title">Menu</h1>
           <div class="card-body">
@@ -42,11 +42,11 @@ main {
   padding: 20px;
   color: #FFF; /* Texte blanc */
   align-items: center;
-  transition : box-shadow 0.5s ease;
+  transition: box-shadow 0.5s ease;
 }
+
 .game-card:hover {
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4); 
-
 }
 
 .card-title {
@@ -56,7 +56,7 @@ main {
 
 .card-body {
   text-align: center;
-  display:flex;
+  display: flex;
   justify-content: center;
 }
 
@@ -74,17 +74,15 @@ div a.button {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+.dark-mode div a.button {
+  background-color: #2c3e50; /* Couleur de fond sombre pour les liens en mode sombre */
+}
+
 div a.button:hover {
-  color: #4CAF50; /* Couleur de fond sombre pour les liens au survol */ /* Couleur bleue pour les liens au survol */
-  background-color: #fff
+  color: #1a1a1a;
+}
+
+.dark-mode div a.button:hover {
+  color: #bdc3c7; /* Couleur de fond sombre pour les liens au survol en mode sombre */
 }
 </style>
-  /* Style additionnel pour les liens si nécessaire */
-  nav a {
-    display: block;
-    margin-bottom: 10px;
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-  }
-  
