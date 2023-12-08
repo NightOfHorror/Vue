@@ -105,6 +105,7 @@
     },
   };
   </script>
+  
   <style scoped>
   .flip-card {
     width: 300px;
