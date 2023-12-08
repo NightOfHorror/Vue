@@ -1,5 +1,5 @@
 <template>
-  <div id="app" @keydown="handleKeyDown" ref="appRef">
+  <div id="app" @keydown="handleKeyDown" ref="appRef" :class="{ 'dark-mode': isDarkMode }">
     <Header/>
     <router-view></router-view>
   </div>
@@ -17,6 +17,11 @@ export default Vue.extend({
     Header,
     FlipCard,
     MainMenu,
+  },
+  computed: {
+    isDarkMode() {
+      return this.$store.getters.isDarkMode;
+    },
   },
   data() {
     return {
@@ -70,6 +75,10 @@ export default Vue.extend({
 </script>
 
 <style>
+.dark-mode {
+  background-color: #333; /* Changer la couleur d'arrière-plan en mode sombre */
+  color: #fff; /* Changer la couleur du texte en mode sombre */
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;

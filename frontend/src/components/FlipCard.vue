@@ -1,5 +1,5 @@
 <template>
-    <div class="flip-card" @click="handleCardClick">
+    <div class="flip-card" @click="handleCardClick" :class="{ 'dark-mode': $store.getters.isDarkMode }">
       <div class="flip-card-inner" :class="{ flipped: isFlipped }">
         <div class="flip-card-front">
           <!-- Contenu de la face avant de la carte (question) -->
@@ -128,7 +128,9 @@
   .flip-card .flip-card-inner.flipped {
     transform: rotateY(180deg);
   }
-  
+  .dark-mode .flip-card {
+  background-color: #2c3e50; /* Couleur de fond en mode sombre */
+}
   .flip-card-front,
   .flip-card-back {
     width: 100%;
