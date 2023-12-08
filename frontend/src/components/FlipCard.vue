@@ -10,7 +10,7 @@
         <div class="flip-card-back" :class="{ correctAnswer: isFlipped && isCorrectAnswer, wrongAnswer: isFlipped && !isCorrectAnswer }">
           <!-- Contenu de la face arrière de la carte (réponse) -->
           <div class="answer">{{ isCorrectAnswer ? 'Bonne réponse' : 'Mauvaise réponse' }}</div>
-          <div> {{ currentQuestion.explication }}</div>
+          <div style="font-size:11px;"> {{ currentQuestion.explication }}</div>
         </div>
       </div>
     </div>
