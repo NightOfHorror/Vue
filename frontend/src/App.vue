@@ -75,17 +75,25 @@ export default Vue.extend({
   },
 });
 </script>
-
 <style>
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 .dark-mode {
   background-color: #333; /* Changer la couleur d'arrière-plan en mode sombre */
   color: #fff; /* Changer la couleur du texte en mode sombre */
 }
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
   color: #2c3e50;
-  margin-top: 0px; /* Ajustez la marge pour éviter que le contenu ne soit caché derrière l'en-tête fixe */
+  margin-top: 0px !important; /* Ajustez la marge pour éviter que le contenu ne soit caché derrière l'en-tête fixe */
+  min-height: 100%; /* Ajustez la hauteur minimale pour couvrir tout l'écran */
+  display: flex;
+  flex-direction: column;
 }
 
 h2 {

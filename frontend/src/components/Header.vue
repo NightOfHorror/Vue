@@ -39,6 +39,7 @@ export default {
   color: #fff; /* Couleur du texte de l'en-tête */
   padding: 10px;
   display: flex;
+  margin:0;
   justify-content: space-between;
   align-items: center;
 }
