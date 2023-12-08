@@ -30,23 +30,23 @@ main {
   align-items: flex-start;
   height: 100vh;
   margin-top: 50px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Police propre et lisible */
 }
 
 .game-card {
-  background-color: whitesmoke; /* Couleur de fond sombre */
-  border: 2px solid #6c757d; /* Bordure grise */
+  background-color: #8BC34A; /* Couleur de fond sombre */
+  border: 2px solid #4CAF50; /* Bordure grise */
   border-radius: 12px; /* Coins arrondis */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Ombre légère */
   width: 300px;
   padding: 20px;
-  color: #2A7AAF; /* Texte blanc */
+  color: #FFF; /* Texte blanc */
   align-items: center;
   transition: box-shadow 0.5s ease;
 }
 
 .game-card:hover {
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4); 
 }
 
 .card-title {
@@ -68,7 +68,7 @@ div a.button {
   margin: 5px;
   text-decoration: none;
   color: #fff;
-  background-color: #3498db;
+  background-color: #4CAF50;
   border: 2px solid #fff;
   border-radius: 8px;
   transition: background-color 0.3s ease, color 0.3s ease;
