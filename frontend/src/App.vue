@@ -1,7 +1,9 @@
 <template>
   <div id="app" @keydown="handleKeyDown" ref="appRef" :class="{ 'dark-mode': isDarkMode }">
-    <Header/>
+    <Header @toggle-mode="toggleDarkMode"></Header>
+    <Background />
     <router-view></router-view>
+    
   </div>
 </template>
 
@@ -11,6 +13,7 @@ import Header from "@/components/Header.vue";
 import FlipCard from "@/components/FlipCard.vue";
 import MainMenu from "@/components/MainMenu.vue";
 import Creators from "@/components/Creators.vue";
+import Background from "@/components/background.vue";
 
 export default Vue.extend({
   name: "App",
@@ -18,13 +21,15 @@ export default Vue.extend({
     Header,
     FlipCard,
     MainMenu,
-    Creators
+    Creators,
+    Background
   },
   computed: {
     isDarkMode() {
       return this.$store.getters.isDarkMode;
     },
   },
+
   data() {
     return {
       konamiCode: [] as string[],
@@ -32,6 +37,39 @@ export default Vue.extend({
     };
   },
   methods: {
+    toggleDarkMode() {
+
+
+            var hour = "day";
+            console.log("ok1");
+            const toggleButton = document.getElementById("toggleButton");
+            const nightToAnimate = document.getElementById("night");
+            const dayToAnimate = document.getElementById("day");
+            const nightbackgroundToAnimate = document.getElementById("backgroundnight");
+            console.log(nightToAnimate);
+            toggleButton?.addEventListener("click", function () {
+                console.log("ok");
+                if (hour == "day"/*toggleButton.checked*/) {
+                    // Code à exécuter lorsque le bouton est activé
+                    console.log("Bouton activé");
+                    dayToAnimate?.classList.add("deactiveday");
+                    dayToAnimate?.classList.remove("activeday");
+                    nightToAnimate?.classList.add("activenight");
+                    nightToAnimate?.classList.remove("deactivenight");
+                    nightbackgroundToAnimate?.classList.remove("deactivate");
+                    hour = "night";
+                } else {
+                    // Code à exécuter lorsque le bouton est désactivé
+                    dayToAnimate?.classList.add("activeday");
+                    dayToAnimate?.classList.remove("deactiveday");
+                    nightToAnimate?.classList.add("deactivenight");
+                    nightToAnimate?.classList.remove("activenight");
+                    nightbackgroundToAnimate?.classList.add("deactivate");
+                    hour = "day";
+                }
+            });
+        
+},
     handleKeyDown(event: KeyboardEvent) {
       console.log("Key pressed:", event.key);
       const key = event.key;

@@ -42,6 +42,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
   /* Styles spécifiques à Creator.vue */
   
   main {
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,6 +52,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
   }
   
   .eco-card {
+    z-index:100;
     background-color: #8BC34A; /* Vert rappelant la nature */
     border: 2px solid #4CAF50; /* Bordure verte plus foncée */
     border-radius: 12px; /* Coins arrondis */

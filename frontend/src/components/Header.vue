@@ -1,14 +1,15 @@
 <template>
   <header class="site-header" :class="{ 'dark-mode': $store.getters.isDarkMode }">
+    <button @click="toggleMode"></button>
     <div class="logo-container">
       <router-link to="/">
         <img src="@/assets/logo.png" alt="Logo du site" class="logo" />
       </router-link>
       <h1 class="site-title">Flip Quiz</h1>
     </div>
-    <button @click="toggleDarkMode" class="dark-mode-toggle">
+<!--     <button @click="toggleDarkMode" class="dark-mode-toggle">
       {{ $store.getters.isDarkMode ? 'Mode clair' : 'Mode sombre' }}
-    </button>
+    </button> -->
   </header>
 </template>
 
@@ -21,9 +22,42 @@ export default {
     };
   },
   methods: {
+    toggleMode() {
+      // Émettre un événement pour indiquer le changement de mode
+      this.$emit('toggle-mode');
+    },
     toggleDarkMode() {
-      this.darkMode = !this.darkMode;
-      this.$store.commit('toggleDarkMode', this.darkMode);
+     /*  this.darkMode = !this.darkMode;
+      this.$store.commit('toggleDarkMode', this.darkMode); */
+            var hour = "day";
+            console.log("ok1");
+            const toggleButton = document.getElementById("toggleButton");
+            const nightToAnimate = document.getElementById("night");
+            const dayToAnimate = document.getElementById("day");
+            const nightbackgroundToAnimate = document.getElementById("backgroundnight");
+            console.log(nightToAnimate);
+            toggleButton.addEventListener("click", function () {
+                console.log("ok");
+                if (hour == "day"/*toggleButton.checked*/) {
+                    // Code à exécuter lorsque le bouton est activé
+                    console.log("Bouton activé");
+                    dayToAnimate.classList.add("deactiveday");
+                    dayToAnimate.classList.remove("activeday");
+                    nightToAnimate.classList.add("activenight");
+                    nightToAnimate.classList.remove("deactivenight");
+                    nightbackgroundToAnimate.classList.remove("deactivate");
+                    hour = "night";
+                } else {
+                    // Code à exécuter lorsque le bouton est désactivé
+                    dayToAnimate.classList.add("activeday");
+                    dayToAnimate.classList.remove("deactiveday");
+                    nightToAnimate.classList.add("deactivenight");
+                    nightToAnimate.classList.remove("activenight");
+                    nightbackgroundToAnimate.classList.add("deactivate");
+                    hour = "day";
+                }
+            });
+        
     },
   },
 }
@@ -78,6 +112,7 @@ export default {
 /* Styles spécifiques à Header.vue */
 }
 .site-header {
+  z-index:1;
   background-color: #8BC34A; /* Couleur verte rappelant la nature */
   padding: 10px 20px;
   display: flex;

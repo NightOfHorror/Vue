@@ -114,6 +114,7 @@ botMove() {
 }
 
 .game-container {
+  z-index:105;
   display: flex;
   flex-direction: column;
   align-items: center;

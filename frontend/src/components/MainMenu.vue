@@ -1,6 +1,6 @@
 <template>
     <div>
-      <main :class="{ 'dark-mode': $store.getters.isDarkMode }">
+      <main class="overall" :class="{ 'dark-mode': $store.getters.isDarkMode }">
         <div class="game-card">
           <h1 class="card-title">Menu</h1>
           <div class="card-body">
@@ -34,6 +34,7 @@ main {
 }
 
 .game-card {
+  z-index:100;
   background-color: #8BC34A; /* Couleur de fond sombre */
   border: 2px solid #4CAF50; /* Bordure grise */
   border-radius: 12px; /* Coins arrondis */
