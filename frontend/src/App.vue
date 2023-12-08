@@ -10,6 +10,7 @@ import Vue from 'vue';
 import Header from "@/components/Header.vue";
 import FlipCard from "@/components/FlipCard.vue";
 import MainMenu from "@/components/MainMenu.vue";
+import Creators from "@/components/Creators.vue";
 
 export default Vue.extend({
   name: "App",
@@ -17,7 +18,8 @@ export default Vue.extend({
     Header,
     FlipCard,
     MainMenu,
-  },
+    Creators,
+},
   data() {
     return {
       konamiCode: [] as string[],
@@ -76,7 +78,7 @@ export default Vue.extend({
   font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
   color: #2c3e50;
-  margin-top: 70px; /* Ajustez la marge pour éviter que le contenu ne soit caché derrière l'en-tête fixe */
+  margin-top: 0px; /* Ajustez la marge pour éviter que le contenu ne soit caché derrière l'en-tête fixe */
 }
 
 h2 {

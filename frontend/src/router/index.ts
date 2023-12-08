@@ -1,16 +1,23 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
-import MainMenu from '../components/MainMenu.vue'
+import Creators from '../components/Creators.vue'
 import FlipCard from '../components/FlipCard.vue'
 import Bomberman from '../components/Bomberman.vue'
+import MainMenu from '../components/MainMenu.vue'
+import HomeView from '../views/HomeView.vue'; 
 
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
   {
     path: '/',
-    name: 'home',
-    component: MainMenu
+    name: 'MainMenu',
+    component: MainMenu,
+  },
+  {
+    path: '/creators',
+    name: 'creators',
+    component: Creators
   },
   {
     path: '/play',

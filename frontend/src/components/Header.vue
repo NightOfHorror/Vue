@@ -1,45 +1,60 @@
-<!-- Header.vue -->
-
 <template>
-    <header class="app-header">
-      <div class="logo">
-        <!-- Inclure le logo ici -->
-        <!-- Vous pouvez utiliser une balise <img> ou tout autre élément selon votre logo -->
-        <img src="chemin/vers/le/logo.png" alt="Logo" />
-      </div>
-      <h1 class="title">Jeux de Carte</h1>
-    </header>
-  </template>
-  
-  <script>
-  export default {
-    name: "Header",
-  };
-  </script>
-  
-  <style scoped>
-  .app-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #3498db; /* Couleur de fond de l'en-tête */
-    color: #fff; /* Couleur du texte de l'en-tête */
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .logo img {
-    width: 50px; /* Ajustez la taille du logo selon vos besoins */
-    height: 50px; /* Ajustez la taille du logo selon vos besoins */
-  }
-  
-  .title {
-    margin: 0;
-    text-align: center; /* Centrer le texte */
-    width: 100%; /* Assurez-vous que le texte ne dépasse pas de l'écran */
-  }
-  </style>
-  
+  <header class="site-header">
+    <div class="logo-container">
+      <router-link to="/">
+        <img src="@/assets/logo.png" alt="Logo du site" class="logo" />
+      </router-link>
+      <h1 class="site-title">Flip Quiz</h1>
+    </div>
+  </header>
+</template>
+<script>
+export default {
+  name: "Header",
+};
+</script>
+
+<style scoped>
+/* Styles spécifiques à Header.vue */
+
+.site-header {
+  background-color: #8BC34A; /* Couleur verte rappelant la nature */
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 40px; /* Ajuste la taille de ton logo */
+  margin-right: 10px;
+}
+
+.site-title {
+  color: #fff; /* Texte blanc */
+  font-size: 24px;
+  margin: 0;
+}
+
+.main-nav {
+  display: flex;
+  gap: 20px;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #fff; /* Texte blanc */
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+  color: #1a1a1a; /* Couleur de fond sombre pour les liens au survol */
+}
+</style>
