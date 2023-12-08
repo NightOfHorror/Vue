@@ -1,7 +1,7 @@
 <template>
     <div class="background-container">
       <form action="" style="position:absolute;top:2.5%;left:15;z-index:3"><button id="toggleButton" type="button">Jour/Nuit</button></form>
-      <svg width="100%" height="100%" viewBox="0 0 1016 571.5" version="1.1" id="svg5"
+      <svg width="100%" viewBox="0 0 1016 571.5" version="1.1" id="svg5"
         inkscape:export-filename="image.png" inkscape:export-xdpi="96" inkscape:export-ydpi="96" xml:space="preserve"
         inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)" sodipodi:docname="@assets/svg_sous_hormones.svg"
         xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
